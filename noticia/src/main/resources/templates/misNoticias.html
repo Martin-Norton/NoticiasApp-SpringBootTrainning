@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head th:replace= "/fragments/head :: head" > </head>
+<body>
+    <h1>Mis Noticias</h1>
+    <table th:action="@{/noticia/misNoticias/__$(noticia.periodista.id)__}">
+        <tr>
+            <th>Título</th>
+            <th>Cuerpo</th>
+        </tr>
+        <tr th:each="noticia : ${misNoticias}">
+            <td th:text="${noticia.titulo}"></td>
+            <td th:text="${noticia.cuerpo}"></td>
+            <a th:href="@{/noticia/modificar/{id}(id=${noticia.idNoticia})}" class="btn btn-primary">Modificar mi Noticia</a>
+        </tr>
+    </table>
+</body>
+</html>

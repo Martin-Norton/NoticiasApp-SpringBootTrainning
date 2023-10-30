@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html  xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace= "/fragments/head :: head" > </head>
+    <body>
+        <div class="row mt-5 g-2">
+            <div class="card" style="width: 100%">
+               
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${noticia.titulo}"></h5>
+                    <p class="card-text" th:text="${noticia.cuerpo}"></p>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <a th:href="@{/noticia/modificar/{id}(id=${noticia.idNoticia})}" sec:authorize = "hasRole('ADMIN')">MODIFICAR</a>
+        </nav>
+    </body>
+</html>

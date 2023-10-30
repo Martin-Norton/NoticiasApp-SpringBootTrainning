@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org ">
+    <head th:replace= "/fragments/head :: head" > </head>
+    <body>
+        <div class="row">
+            <form th:action="@{/noticia/registro}" method="post">
+                <div class="col">
+                    <label for="titulo">Título de la noticia:</label>
+                    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Ingrese el título de la noticia">
+                </div>
+                <div class="col">
+                    <label for="cuerpo">Cuerpo de la noticia:</label>
+                    <textarea class="form-control" id="cuerpo" name="cuerpo" placeholder="Ingrese el cuerpo de la noticia"></textarea>
+                </div>
+                <div class="form-group my-3">
+                    <input hidden type="text" class="form-control" id="periodista" name="idPeriodista" >
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Subir</button>
+            </form>
+            
+        </div>
+       <div th:if="${exito}" class="card text-white bg-success mb-3 mt-3 mensajeExito" >
+                <div class="card-body">
+                    <h5 class="card-title">Exito ð</h5>
+                    <p class="card-text" th:text="${exito}"></p>
+                </div>
+            </div>
+            <div th:if="${error}" class="card text-white bg-danger mb-3 mensajeError" >
+                <div class="card-body">
+                    <h5 class="card-title">Error ð</h5>
+                    <p class="card-text" th:text="${error}"></p>
+                </div>
+            </div>
+    </body>
+</html>
